@@ -18,28 +18,25 @@ object HMM extends App {
   
   val startProbabilities = Set(Rainy -> 0.6, Sunny -> 0.4)
   
-  val transitionProbabilities = Map(
+  val transitionProbabilities: Map[State, Map[State, Double]] = Map(
     Rainy -> Map (Rainy -> 0.7, Sunny -> 0.3),
     Sunny -> Map (Rainy -> 0.4, Sunny -> 0.6)
   )
   
-  val emissionProbabilities = Map(
-    Rainy -> Map(Walk -> 0.1, Shop -> 0.4, Clean -> 0.5)
+  val emissionProbabilities: Map[State, Map[Observation, Double]] = Map(
+    Rainy -> Map(Walk -> 0.1, Shop -> 0.4, Clean -> 0.5),
     Sunny -> Map(Walk -> 0.6, Shop -> 0.3, Clean -> 0.1)
   )
   
   val steps = 200
   
   def nextState(current: State): State = {
+    val transitionsFromCurrent = transitionProbabilities(current)
     
+    ???
   }
   
-  def nextEmission(state: State): 
+  def nextEmission(state: State): Observation = ???
   
-  for { 
-    step <- (0 upto steps)
-  } yield {
-    
-  } 
   
 }
